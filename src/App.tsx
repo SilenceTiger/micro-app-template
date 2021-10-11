@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
-import { Switch, HashRouter, Route, Redirect } from 'react-router-dom';
+import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom';
 import zhCN from 'antd/es/locale/zh_CN';
 import Loading from 'components/Loading';
 import { getBaseUrl } from 'utils/route';
@@ -11,7 +11,7 @@ const PreviewEntrance = React.lazy(() => import('pages/preview'));
 const App: React.FC<{}> = () => {
   return (
     <ConfigProvider locale={zhCN}>
-      <HashRouter basename={getBaseUrl()}>
+      <BrowserRouter basename={getBaseUrl()}>
         <React.Suspense fallback={<Loading />}>
           {/* 一级菜单 */}
           <Switch>
@@ -20,7 +20,7 @@ const App: React.FC<{}> = () => {
             <Route path="/preview" render={() => React.createElement(PreviewEntrance)} />
           </Switch>
         </React.Suspense>
-      </HashRouter>
+      </BrowserRouter>
     </ConfigProvider>
   );
 };

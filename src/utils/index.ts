@@ -1,9 +1,3 @@
-// http://10.247.23.176:3000/#/b?from=csmp&menu=open
-// window.location.hash = "#/b?from=csmp&menu=open"
-// window.location.search = ""
-// http://10.247.23.176:3000/?from=csmp&menu=open#/b
-// window.location.hash = "#/b"
-// window.location.search = "?from=csmp&menu=open"
 export function getValueInUrl(name: string, url?: string) {
   if (!url) {
     url = window.location.href;
