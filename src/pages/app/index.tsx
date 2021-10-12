@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Switch, useHistory, useLocation, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, useLocation, useHistory, Redirect } from 'react-router-dom';
 import { Menu } from 'antd';
-import { getBaseUrl, push } from 'utils/route';
 import Loading from 'components/Loading';
 import NormalForm from './NormalForm';
 import NormalTable from './NormalTable';
@@ -9,11 +8,11 @@ import styles from 'theme/normal.module.scss';
 const { SubMenu } = Menu;
 
 const AppLayout: React.FC<{}> = () => {
-  const history = useHistory();
   const location = useLocation();
+  const history = useHistory();
   useEffect(() => {
     if (location.pathname === '/app') {
-      push('/app/table');
+      history.push('/app/table');
     }
   }, [location, history]);
   return (
@@ -23,7 +22,8 @@ const AppLayout: React.FC<{}> = () => {
           mode="horizontal"
           defaultSelectedKeys={['table']}
           onClick={(value) => {
-            push('/app/' + value.key);
+            history.push('/app/' + value.key);
+            // (window as any).history.pushState(null, '', '/app/' + value.key);
           }}>
           <Menu.Item key="table">普通表格</Menu.Item>
           <Menu.Item key="form">普通表单</Menu.Item>
@@ -36,15 +36,17 @@ const AppLayout: React.FC<{}> = () => {
       </div>
 
       <div className={styles['content-container']}>
-        <BrowserRouter basename={getBaseUrl() + '/app'}>
-          <React.Suspense fallback={<Loading />}>
-            <Switch>
-              <Route exact path="/" render={() => <Redirect to="/table" />} />
-              <Route path="/table" render={() => <NormalTable />} />
-              <Route path="/form" render={() => <NormalForm />} />
-            </Switch>
-          </React.Suspense>
-        </BrowserRouter>
+        <div>
+          <BrowserRouter basename="/app">
+            <React.Suspense fallback={<Loading />}>
+              <Switch>
+                <Route exact path="/" render={() => <Redirect to="/table" />} />
+                <Route path="/table" render={() => <NormalTable />} />
+                <Route path="/form" render={() => <NormalForm />} />
+              </Switch>
+            </React.Suspense>
+          </BrowserRouter>
+        </div>
       </div>
     </div>
   );
