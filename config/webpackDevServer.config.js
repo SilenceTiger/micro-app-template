@@ -66,7 +66,13 @@ module.exports = function (proxy, allowedHost) {
       'Access-Control-Allow-Origin': '*'
     }, // qiankun +
     liveReload: false, // qiankun +
-    historyApiFallback: true, // qiankun
+    historyApiFallback: {
+      // Paths with dots should still use the history fallback.
+      // See https://github.com/facebook/create-react-app/issues/387.
+      disableDotRule: true,
+      index: paths.publicUrlOrPath
+    },
+    // historyApiFallback: true, // qiankun
     // Use 'ws' instead of 'sockjs-node' on server since we're using native
     // websockets in `webpackHotDevClient`.
     transportMode: 'ws',
@@ -97,12 +103,6 @@ module.exports = function (proxy, allowedHost) {
     https: getHttpsConfig(),
     host,
     overlay: false,
-    // historyApiFallback: {
-    //   // Paths with dots should still use the history fallback.
-    //   // See https://github.com/facebook/create-react-app/issues/387.
-    //   disableDotRule: true,
-    //   index: paths.publicUrlOrPath,
-    // },
 
     public: allowedHost,
     // `proxy` is run between `before` and `after` `webpack-dev-server` hooks

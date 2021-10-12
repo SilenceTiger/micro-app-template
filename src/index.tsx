@@ -1,7 +1,7 @@
 import './public-path';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { inQianKun } from 'utils/route';
+import { inQianKun } from 'qiankun-config';
 import reportWebVitals from './reportWebVitals';
 import './index.scss';
 

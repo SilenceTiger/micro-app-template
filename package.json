@@ -2,7 +2,8 @@
   "name": "app-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
+  "homepage": "/apps/app-react/",
+  "activeRule": "/main/app-react",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",

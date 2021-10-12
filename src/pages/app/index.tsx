@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Switch, useLocation, useHistory, Redirect } from 'react-router-dom';
+import { Route, Switch, useLocation, useHistory, Redirect } from 'react-router-dom';
 import { Menu } from 'antd';
 import Loading from 'components/Loading';
 import NormalForm from './NormalForm';
@@ -23,7 +23,6 @@ const AppLayout: React.FC<{}> = () => {
           defaultSelectedKeys={['table']}
           onClick={(value) => {
             history.push('/app/' + value.key);
-            // (window as any).history.pushState(null, '', '/app/' + value.key);
           }}>
           <Menu.Item key="table">普通表格</Menu.Item>
           <Menu.Item key="form">普通表单</Menu.Item>
@@ -37,15 +36,14 @@ const AppLayout: React.FC<{}> = () => {
 
       <div className={styles['content-container']}>
         <div>
-          <BrowserRouter basename="/app">
-            <React.Suspense fallback={<Loading />}>
-              <Switch>
-                <Route exact path="/" render={() => <Redirect to="/table" />} />
-                <Route path="/table" render={() => <NormalTable />} />
-                <Route path="/form" render={() => <NormalForm />} />
-              </Switch>
-            </React.Suspense>
-          </BrowserRouter>
+          {/* 支持lazy */}
+          <React.Suspense fallback={<Loading />}>
+            <Switch>
+              <Route exact path="/app" render={() => <Redirect to="/app/table" />} />
+              <Route path="/app/table" render={() => <NormalTable />} />
+              <Route path="/app/form" render={() => <NormalForm />} />
+            </Switch>
+          </React.Suspense>
         </div>
       </div>
     </div>
