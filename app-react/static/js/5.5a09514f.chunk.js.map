@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/preview/index.tsx"],"names":["Preview"],"mappings":"sIAIeA,UAJe,WAC5B,OAAO","file":"static/js/5.5a09514f.chunk.js","sourcesContent":["const Preview: React.FC<{}> = () => {\r\n  return <div>Preview</div>;\r\n};\r\n\r\nexport default Preview;\r\n"],"sourceRoot":""}

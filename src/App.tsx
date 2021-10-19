@@ -10,7 +10,7 @@ const PreviewEntrance = React.lazy(() => import('pages/preview'));
 const App: React.FC<{}> = () => {
   return (
     <ConfigProvider locale={zhCN}>
-      <BrowserRouter basename={getBaseUrl() || '/'}>
+      <BrowserRouter basename={getBaseUrl()}>
         <React.Suspense fallback={<Loading />}>
           {/* 一级菜单 */}
           <Switch>

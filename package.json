@@ -2,8 +2,10 @@
   "name": "app-react",
   "version": "0.1.0",
   "private": true,
+  "microName": "app-v",
   "homepage": "/apps/app-react/",
   "activeRule": "/main/app-react",
+  "buildPath": "app-react",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
@@ -54,7 +56,6 @@
     "jest-watch-typeahead": "0.6.1",
     "less": "3.10.3",
     "less-loader": "5.0.0",
-    "micro-app-lib": "^0.1.1",
     "mini-css-extract-plugin": "0.11.3",
     "mockjs": "^1.1.0",
     "optimize-css-assets-webpack-plugin": "5.0.4",
@@ -88,7 +89,7 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "scripts": {
-    "start": "cross-env PORT=4002 node scripts/start.js",
+    "start": "cross-env PORT=4001 node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },
