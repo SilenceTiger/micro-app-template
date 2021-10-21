@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "microName": "app-v",
-  "homepage": "/apps/app-react/",
-  "activeRule": "/main/app-react",
-  "buildPath": "app-react",
   "dependencies": {
     "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",

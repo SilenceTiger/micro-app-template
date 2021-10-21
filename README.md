@@ -1,5 +1,7 @@
 ## 基于 create-react-app 改造的微前端模板
 
+### 内置`antd` `react-router-dom` `axios` 急速开发
+
 只需要配置 `package.json` 中的 `homepage` 、`activeRule` 即可插入到主应用
 
 开发子应用流程
@@ -12,5 +14,5 @@
 * step5. npm run start 开发模式
 * step6. npm run build 打包
 * step7. 注册子应用，平台部署：打包上传 cnpc.zip 与相关信息 注册路由，独立部署无需上传
-* step8. 平台部署：后端将 cnpc.zip 解压到 nginx/html/apps 下, 修改 nginx.conf 中的location, 重启nginx
-* step9. 注册路由
+* step8. 平台部署：后端将 cnpc.zip 解压到 nginx/html/apps 下, 修改 nginx.conf 中的location（使用正则，无需修改和重启）
+* step9. 注册路由菜单
